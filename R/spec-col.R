@@ -48,6 +48,10 @@ col_spec <- function(..., con = get_con()) UseMethod("col_spec", con)
 #' 
 #' @export
 #' 
+
+# fix renaming of `quo_is_lang()` in rlang
+quo_is_lang <- rlang::quo_is_call
+
 col_spec.MariaDBConnection <- function(name = paste(sample(letters, 10, TRUE),
                                                     collapse = ""),
                                        type = col_int(),
