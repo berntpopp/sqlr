@@ -49,9 +49,6 @@ col_spec <- function(..., con = get_con()) UseMethod("col_spec", con)
 #' @export
 #' 
 
-# fix renaming of `quo_is_lang()` in rlang
-quo_is_lang <- rlang::quo_is_call
-
 col_spec.MariaDBConnection <- function(name = paste(sample(letters, 10, TRUE),
                                                     collapse = ""),
                                        type = col_int(),
@@ -77,7 +74,7 @@ col_spec.MariaDBConnection <- function(name = paste(sample(letters, 10, TRUE),
   type_funs <- c("col_int", "col_dbl", "col_chr", "col_raw", "col_lgl",
                  "col_fct", "col_dtm")
 
-  if (rlang::quo_is_lang(type_quo)) {
+  if (rlang::quo_is_call(type_quo)) {
 
     type <- rlang::lang_modify(type_quo, con = con)
     type <- rlang::eval_tidy(type)
