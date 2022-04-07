@@ -9,7 +9,7 @@ Flexibly generate SQL statements and queries from R to run against a DBMS, using
 The easiest way of getting up and running is by means of the `devtools` package as
 ```r
 install.packages("devtools")
-devtools::install_github("nbenn/sqlr")
+devtools::install_github("berntpopp/sqlr")
 ```
 Alternatively the package can be [downloaded](https://github.com/nbenn/sqlr/archive/master.zip) and installed manually:
 ```bash
